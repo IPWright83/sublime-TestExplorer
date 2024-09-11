@@ -46,25 +46,24 @@ class TestExplorerMenuCommand(sublime_plugin.TextCommand):
         test_rgx = re.compile(test.get('match'))
 
         content = self.view.substr(sublime.Region(0, self.view.size()))
-
         group_blocks = group_rgx.findall(content)
         test_blocks = test_rgx.findall(content)
         results = []
 
         ## Find line numbers
         for block in group_blocks:
-            description = next((item for item in block if item), None)  # Get the first non-empty string
+            description = block[1]
             if description:
-                region = self.view.find(r'\b{}\b'.format(re.escape(description)), 0)
+                region = self.view.find(description, 0)
                 if region:
                     line_number, _ = self.view.rowcol(region.begin())
                     results.append((description, line_number + 1, 'group'))
 
         ## Find line numbers
         for block in test_blocks:
-            it = next((item for item in block if item), None)
+            it = block[1]
             if it:
-                region = self.view.find(r'\b{}\b'.format(re.escape(it)), 0)
+                region = self.view.find(it, 0)
                 if region:
                     line_number, _ = self.view.rowcol(region.begin())
                     results.append((it, line_number + 1, 'test'))
