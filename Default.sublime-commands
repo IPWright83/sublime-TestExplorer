@@ -1,0 +1,6 @@
+[
+    {
+        "caption": "Test Explorer: Show Test Menu",
+        "command": "test_explorer_menu"
+    }
+]
