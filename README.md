@@ -11,7 +11,7 @@ It supports the concept of a group of tests, and then the names of test themselv
 1. Enter `TestExplorer`
 
 # Demo
-
+![CleanShot 2024-09-11 at 16 36 08](https://github.com/user-attachments/assets/53ed4c50-a449-47a2-9f1f-e6be1b6089c3)
 
 # Configuration
 
