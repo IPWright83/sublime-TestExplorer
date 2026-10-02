@@ -54,7 +54,7 @@ class TestExplorerMenuCommand(sublime_plugin.TextCommand):
         for block in group_blocks:
             description = block[1]
             if description:
-                region = self.view.find(description, 0)
+                region = self.view.find(description, 0, sublime.LITERAL)
                 if region:
                     line_number, _ = self.view.rowcol(region.begin())
                     results.append((description, line_number + 1, 'group'))
@@ -63,7 +63,7 @@ class TestExplorerMenuCommand(sublime_plugin.TextCommand):
         for block in test_blocks:
             it = block[1]
             if it:
-                region = self.view.find(it, 0)
+                region = self.view.find(it, 0, sublime.LITERAL)
                 if region:
                     line_number, _ = self.view.rowcol(region.begin())
                     results.append((it, line_number + 1, 'test'))
